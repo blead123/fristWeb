@@ -1,7 +1,9 @@
 package com.firstWeb.web.dto;
 
 import com.firstWeb.domain.posts.Posts;
+import lombok.Getter;
 
+@Getter
 public class PostsResponseDto {
     private Long id;
     private String title;
