@@ -40,4 +40,10 @@ public class PostsService {
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+    @Transactional
+    public void delete(Long id){
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("해당게시글이 없습니다 id="+id));//저장소로부터 아이디를 받음 업슴 삭제
+        postsRepository.delete(posts);
+    }
 }
